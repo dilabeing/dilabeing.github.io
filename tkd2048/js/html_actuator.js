@@ -82,9 +82,9 @@ HTMLActuator.prototype.addTile = function (tile) {
   if(tile.value == 512)
   inner.textContent = 'koryo';
   if(tile.value == 1024)
-  inner.textContent = 'keumgang';
+  inner.textContent = 'keum gang';
   if(tile.value == 2048)
-  inner.textContent = 'taebaek';
+  inner.textContent = 'tae baek';
   else if(tile.value > 2048)
   inner.textContent = 'Jiayou For exam!';
 
