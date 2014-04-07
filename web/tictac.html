@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/backbtn.css">
+    <link rel="stylesheet" type="text/css" href="css/ttt.css">
+    <script type="text/javascript">
+
+    //Global Variables
+    var painted;
+    var content;
+    var winningCombinations;
+    var turn = 0;
+    var theCanvas;
+    var c;
+    var cxt;
+    var squaresFilled = 0;
+    var w;
+    var y;
+
+    //Instanciate Arrays
+    window.onload=function(){
+      
+      painted = new Array();
+      content = new Array();
+      winningCombinations = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+      for(var l = 0; l <= 8; l++){
+      painted[l] = false;
+      content[l]='';
+      }
+    }
+
+    //Game methods
+    function canvasClicked(canvasNumber){
+      theCanvas = "canvas"+canvasNumber;
+      c = document.getElementById(theCanvas);
+      cxt = c.getContext("2d");
+
+      if(painted[canvasNumber-1] ==false){
+        if(turn%2==0){
+          cxt.beginPath();
+          cxt.moveTo(10,10);
+          cxt.lineTo(80,80);
+          cxt.moveTo(80,10);
+          cxt.lineTo(10,80);
+          cxt.stroke();
+          cxt.closePath();
+          content[canvasNumber-1] = 'X';
+        }
+
+        else{
+          cxt.beginPath();
+          cxt.arc(46,46,33,0,Math.PI*2,true);
+          cxt.stroke();
+          cxt.closePath();
+          content[canvasNumber-1] = 'O';
+        }
+
+        turn++;
+        painted[canvasNumber-1] = true;
+        squaresFilled++;
+        checkForWinners(content[canvasNumber-1]);
+
+        if(squaresFilled==9){
+          alert("THE GAME IS OVER!");
+          location.reload(true);
+        }
+      
+      }
+      else{
+        alert("THAT SPACE IS ALREADY OCCUPIED WITH YOUR HEART!");
+      }
+
+    }
+
+    function checkForWinners(symbol){
+      
+      for(var a = 0; a < winningCombinations.length; a++){
+      if(content[winningCombinations[a][0]]==symbol&&content[winningCombinations[a][1]]== symbol&&content[winningCombinations[a][2]]==symbol){
+        alert(symbol+ " WON!");
+        playAgain();
+      }
+      }
+
+    }
+
+    function playAgain(){
+      y=confirm("Play again?");
+      if(y==true){
+        location.reload(true);
+      }
+      else{
+        alert("Thank you for playing!");
+    }
+
+    }
+
+
+    </script>
+
+  </head>
+  <body>
+    <div id ="box">
+      <div class="title">
+        <h1>The</h1><h2> Very Simple</h2><h3> Tic - Tac - Toe!</h3>
+      </div>
+      <div class="gamezone  ">
+        <canvas id = "canvas1"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(1)"></canvas>
+        <canvas id = "canvas2"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(2)"></canvas>
+        <canvas id = "canvas3"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(3)"></canvas><br/>
+        <canvas id = "canvas4"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(4)"></canvas>
+        <canvas id = "canvas5"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(5)"></canvas>
+        <canvas id = "canvas6"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(6)"></canvas><br/>
+        <canvas id = "canvas7"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(7)"></canvas>
+        <canvas id = "canvas8"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(8)"></canvas>
+        <canvas id = "canvas9"  width="90" height="90" style="border:5px solid white; background-color:white" onclick="canvasClicked(9)"></canvas>
+      </div>
+    </div>
+
+
+<div class="backbut">
+  <a href="main.html">Back</a>
+</div>
+  </body>
+</html>
+
