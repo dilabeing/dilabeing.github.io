@@ -391,7 +391,9 @@ hr {
     @media screen and (max-width: 520px) {
       .tile.tile-2048 .tile-inner {
         LINE-HEIGHT:50px;
-        font-size: 12px; } }
+        font-size: 12px; 
+        color: #f9f6f2;
+        background: #ed5013;} }
 
   .tile.tile-super .tile-inner {
 
@@ -403,7 +405,9 @@ hr {
     @media screen and (max-width: 520px) {
       .tile.tile-super .tile-inner {
         LINE-HEIGHT:50px;
-        font-size: 10px; } }
+        font-size: 10px; 
+        color: #f7f2f6;
+        background:  #f7f2f3;} }
 
 
 @-webkit-keyframes appear {
