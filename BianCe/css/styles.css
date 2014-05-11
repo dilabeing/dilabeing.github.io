@@ -1,0 +1,21 @@
+body{
+	background-color: #aaaaaa;
+}
+
+#profile{
+	position: relative;
+	left: 50px;
+}
+
+.project{
+	position: relative;
+	top: 30px;
+	left: 25px;
+	right: 25px;
+}
+
+.project a{
+	text-decoration: none;
+}
+
+a:visited {color:#2222222;}
