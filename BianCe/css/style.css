@@ -1,4 +1,7 @@
 div{
-	float: block;
-	width: 300px;
+	width: 200px;
+}
+
+p{
+	width: 100px;
 }
