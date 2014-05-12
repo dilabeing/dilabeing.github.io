@@ -12,6 +12,15 @@ body{
 	top: 30px;
 	left: 25px;
 	right: 25px;
+	width:80%;
+}
+
+.statement{
+	position: relative;
+	top: 0px;
+	left: 25px;
+	right: 25px;
+	width:80%;
 }
 
 .project a{
